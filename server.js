@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 let port = process.env.PORT || 8010;
 
 // les routes
-const prefix = 'https://backend-anuglar-m2.onrender.com';
+const prefix = '/api';
 
 app.route(prefix + '/assignments')
   .get(assignment.getAssignments);
@@ -67,8 +67,8 @@ app.route(prefix + '/users')
   .post(user.postUser)
 
 // On démarre le serveur
-app.listen(port, () => {console.log('Serveur démarré sur http://localhost:' + port);});
-
+app.listen(port, 'https://backend-anuglar-m2.onrender.com');
+console.log('Serveur démarré sur http://localhost:' + port);
 
 module.exports = app;
 
