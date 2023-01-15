@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 let port = process.env.PORT || 8010;
 
 // les routes
-const prefix = '/api';
+const prefix = 'https://backend-anuglar-m2.onrender.com';
 
 app.route(prefix + '/assignments')
   .get(assignment.getAssignments);
