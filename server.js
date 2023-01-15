@@ -67,8 +67,8 @@ app.route(prefix + '/users')
   .post(user.postUser)
 
 // On démarre le serveur
-app.listen(port, "0.0.0.0");
-console.log('Serveur démarré sur http://localhost:' + port);
+app.listen(port, () => {console.log('Serveur démarré sur http://localhost:' + port);});
+
 
 module.exports = app;
 
