@@ -3,6 +3,7 @@ let app = express();
 let bodyParser = require('body-parser');
 let assignment = require('./routes/assignments');
 let user = require('./routes/users');
+var cors = require('cors');
 
 
 let mongoose = require('mongoose');
@@ -40,6 +41,12 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+const corsOpts = {
+  origin: '*',
+};
+
+app.use(cors(corsOpts));
+
 let port = process.env.PORT || 8010;
 
 // les routes
@@ -67,7 +74,7 @@ app.route(prefix + '/users')
   .post(user.postUser)
 
 // On démarre le serveur
-app.listen(port, 'https://backend-anuglar-m2.onrender.com');
+app.listen(port, "0.0.0.0");
 console.log('Serveur démarré sur http://localhost:' + port);
 
 module.exports = app;
